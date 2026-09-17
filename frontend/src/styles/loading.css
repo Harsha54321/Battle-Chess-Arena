@@ -1,0 +1,44 @@
+.loading-screen {
+  height: 100vh;
+  background: radial-gradient(circle at center, #111827, #020617);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.loading-container {
+  width: 500px;
+  text-align: center;
+}
+
+.loading-title {
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #facc15;
+  margin-bottom: 40px;
+  text-shadow: 0 0 20px rgba(250, 204, 21, 0.5);
+}
+
+.loading-bar-wrapper {
+  width: 100%;
+  height: 18px;
+  background: #111827;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #1e293b;
+}
+
+.loading-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  border-radius: 20px;
+  transition: width 0.1s linear;
+}
+
+.loading-text {
+  margin-top: 20px;
+  color: #94a3b8;
+  font-size: 20px;
+}

@@ -1,0 +1,22 @@
+.game-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 30;
+}
+
+.game-layout {
+  min-height: 100vh;
+  padding-top: 116px;
+}
+
+@media (max-width: 1020px) {
+  .game-layout {
+    padding-top: 104px;
+  }
+}
+
+@media (max-width: 700px) {
+  .game-layout {
+    padding-top: 84px;
+  }
+}

@@ -1,0 +1,29 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--accent-gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--accent-blue);
+}
