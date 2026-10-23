@@ -1,0 +1,11 @@
+.settings-grid .app-eyebrow { display: flex; align-items: center; gap: 8px; }
+.settings-grid .setting-row > span,
+.settings-volume > span { display: flex; align-items: center; gap: 9px; }
+.settings-grid .setting-row > span svg,
+.settings-volume > span svg { color: #61dafb; }
+.settings-volume { display: grid; gap: 13px; padding: 15px 0; color: #c3d4cd; border-bottom: 1px solid rgba(218,255,246,.08); font-size: 12px; }
+.settings-volume strong { margin-left: auto; color: #61dafb; font-size: 10px; font-weight: 500; }
+.settings-volume input { width: 100%; accent-color: #61dafb; cursor: pointer; }
+.settings-volume input:disabled { cursor: not-allowed; opacity: .45; }
+.settings-note { margin: 12px 0 0; color: #82999a; font-size: 10px; line-height: 1.6; }
+.settings-error { margin: 14px 0 0; color: #ff9a9a; font-size: 11px; line-height: 1.5; }

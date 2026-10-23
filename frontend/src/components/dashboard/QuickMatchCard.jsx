@@ -1,4 +1,5 @@
 import { ArrowRight, Crown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function QuickMatchCard() {
   return (
@@ -30,10 +31,10 @@ function QuickMatchCard() {
             </span>
           </div>
 
-          <button className="inline-flex items-center gap-3 rounded-3xl bg-yellow-400 px-6 py-3 text-sm font-semibold text-black transition hover:shadow-goldGlow">
+          <Link to="/game" className="inline-flex items-center gap-3 rounded-3xl bg-yellow-400 px-6 py-3 text-sm font-semibold text-black transition hover:shadow-goldGlow">
             Play Now
             <ArrowRight size={18} />
-          </button>
+          </Link>
         </div>
 
       </div>

@@ -1,0 +1,134 @@
+.game-station.is-searching .game-layout {
+  filter: blur(6px) saturate(.65);
+  pointer-events: none;
+  user-select: none;
+  transition: filter .25s ease;
+}
+
+.game-station.is-searching .game-header {
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.matchmaking-overlay {
+  position: fixed;
+  z-index: 35;
+  inset: 76px 0 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(3, 10, 13, .56);
+  backdrop-filter: blur(3px);
+}
+
+.matchmaking-card,
+.game-dialog {
+  width: min(100%, 470px);
+  padding: clamp(24px, 5vw, 42px);
+  border: 1px solid rgba(97, 218, 251, .25);
+  background: linear-gradient(145deg, rgba(12, 31, 37, .98), rgba(4, 14, 19, .98));
+  box-shadow: 0 30px 100px rgba(0, 0, 0, .58), 0 0 48px rgba(97, 218, 251, .12);
+  text-align: center;
+}
+
+.matchmaking-spinner {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  color: #61dafb;
+  border: 1px solid rgba(97, 218, 251, .22);
+  border-radius: 50%;
+  background: rgba(97, 218, 251, .08);
+  animation: matchmaking-pulse 1.8s ease-in-out infinite;
+}
+
+.matchmaking-spinner svg { animation: matchmaking-spin 2.2s linear infinite; }
+.matchmaking-card .panel-kicker { margin: 0 0 9px; }
+.matchmaking-card h1 { margin: 0; color: #f2f7ed; font-size: clamp(24px, 4vw, 32px); }
+.matchmaking-description { max-width: 330px; margin: 11px auto 22px; color: #9bb1b1; font-size: 13px; line-height: 1.6; }
+
+.matchmaking-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 17px 12px;
+  border: 1px solid rgba(218, 255, 246, .1);
+  background: rgba(255, 255, 255, .025);
+}
+
+.matchmaking-pair>div { display: grid; justify-items: center; gap: 6px; min-width: 0; }
+.matchmaking-player-avatar {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: #092025;
+  border: 1px solid rgba(97, 218, 251, .45);
+  border-radius: 50%;
+  background: #6ed7e8;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.matchmaking-opponent { color: #a2b4b3; border-style: dashed; background: rgba(255, 255, 255, .06); }
+.matchmaking-pair strong { max-width: 100%; overflow: hidden; color: #e7f1ec; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.matchmaking-pair small { color: #80999a; font-size: 9px; }
+.matchmaking-vs { color: #f1ce64; font-size: 10px; font-weight: 800; letter-spacing: 1px; }
+.matchmaking-live { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 17px 0; color: #91a7a8; font-size: 10px; }
+.matchmaking-live span { width: 7px; height: 7px; border-radius: 50%; background: #6be5a1; box-shadow: 0 0 12px #6be5a1; animation: matchmaking-pulse 1.5s ease-in-out infinite; }
+.matchmaking-cancel { width: 100%; padding: 12px; color: #d8a2a2; border: 1px solid rgba(190, 110, 110, .28); background: rgba(190, 110, 110, .08); font-size: 11px; letter-spacing: 1px; cursor: pointer; }
+.matchmaking-cancel:hover { border-color: #d68787; background: rgba(190, 110, 110, .16); }
+
+.game-dialog-backdrop {
+  position: fixed;
+  z-index: 45;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(1, 7, 10, .78);
+  backdrop-filter: blur(8px);
+}
+
+.game-dialog { border-color: rgba(218, 255, 246, .16); }
+.promotion-dialog h2,.game-over-dialog h2 { margin: 6px 0 10px; color: #f2f7ed; font-size: 26px; }
+.promotion-dialog .panel-kicker,.game-over-dialog .panel-kicker { margin: 0; }
+.promotion-choices { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; margin: 22px 0; }
+.promotion-choices button { display: grid; justify-items: center; gap: 6px; padding: 10px 4px; color: #cbdad4; border: 1px solid rgba(218, 255, 246, .12); background: rgba(255, 255, 255, .035); cursor: pointer; }
+.promotion-choices button:hover { border-color: #61dafb; background: rgba(97, 218, 251, .1); }
+.promotion-choices .chess-piece { font-size: 38px; }
+.promotion-choices small { font-size: 9px; }
+.game-over-icon { display: grid; place-items: center; width: 58px; height: 58px; margin: 0 auto 18px; border: 1px solid rgba(241, 206, 100, .35); border-radius: 50%; background: rgba(241, 206, 100, .1); color: #f1ce64; }
+.game-over-win { color: #6be5a1; border-color: rgba(107, 229, 161, .35); background: rgba(107, 229, 161, .1); }
+.game-over-loss { color: #ff9a9a; border-color: rgba(255, 154, 154, .3); background: rgba(255, 154, 154, .08); }
+.game-over-draw { color: #f1ce64; }
+.game-over-dialog h2 { font-size: 32px; }
+.game-over-dialog>p:not(.panel-kicker) { margin: 0 auto; max-width: 340px; color: #9bb1b1; font-size: 13px; line-height: 1.6; }
+.game-over-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 26px; }
+.game-dialog-primary,.game-dialog-secondary { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 42px; padding: 10px 12px; text-decoration: none; font-size: 10px; letter-spacing: .6px; cursor: pointer; }
+.game-dialog-primary { color: #081416; border: 1px solid #f1ce64; background: #f1ce64; font-weight: 800; }
+.game-dialog-primary:hover { background: #ffe18a; }
+.game-dialog-secondary { color: #b4c9c5; border: 1px solid rgba(218, 255, 246, .15); background: transparent; }
+.game-dialog-secondary:hover { border-color: #61dafb; color: #61dafb; }
+.draw-claim-button { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; color: #f1ce64; border: 1px solid rgba(241, 206, 100, .25); background: rgba(241, 206, 100, .08); font-size: 10px; cursor: pointer; }
+.draw-claim-button:hover:not(:disabled) { border-color: #f1ce64; background: rgba(241, 206, 100, .15); }
+.draw-claim-button:disabled { cursor: wait; opacity: .65; }
+.board-square:disabled { cursor: default; }
+.board-square:disabled:hover { filter: none; }
+.live-dot-active { background: #6be5a1; box-shadow: 0 0 12px #6be5a1; }
+
+@keyframes matchmaking-spin { to { transform: rotate(360deg); } }
+@keyframes matchmaking-pulse { 50% { opacity: .55; transform: scale(.94); } }
+
+@media (max-width: 700px) {
+  .matchmaking-overlay { inset: 64px 0 0; padding: 14px; }
+  .matchmaking-card,.game-dialog { padding: 25px 18px; }
+  .game-over-actions { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matchmaking-spinner,.matchmaking-spinner svg,.matchmaking-live span { animation: none; }
+}

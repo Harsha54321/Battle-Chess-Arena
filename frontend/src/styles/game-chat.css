@@ -11,6 +11,10 @@
 .chat-form input::placeholder { color: #647a7d; }
 .chat-form button { display: grid; place-items: center; width: 28px; height: 28px; flex: 0 0 auto; color: #071316; border: 0; background: var(--game-accent); cursor: pointer; }
 .chat-form button:hover { filter: brightness(1.15); }
+.chat-form button:disabled { cursor: not-allowed; opacity: .5; }
+.chat-modal-messages .chat-message p { font-size: 12px; }
+.chat-empty-state { align-self: center; margin: auto; color: #9ab0b2; font-size: 12px; text-align: center; }
+.chat-error { margin: 0 0 10px; color: #ff9292; font-size: 12px; }
 @media (max-width: 700px) { .chat-messages { max-height: 120px; } }
 .chat-modal-backdrop { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 20px; background: rgba(0, 7, 9, .72); backdrop-filter: blur(8px); }
 .chat-modal { width: min(420px, 100%); padding: 20px; border: 1px solid rgba(97, 218, 251, .32); background: #0a1c20; box-shadow: 0 25px 80px rgba(0, 0, 0, .6), 0 0 35px var(--game-accent-soft); }

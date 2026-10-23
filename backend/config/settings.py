@@ -12,9 +12,11 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / '.env')
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,6 +34,8 @@ ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').sp
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,6 +75,19 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+ASGI_APPLICATION = 'config.asgi.application'
+
+REDIS_URL = os.environ.get('REDIS_URL', '')
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': (
+            'channels_redis.core.RedisChannelLayer'
+            if REDIS_URL
+            else 'channels.layers.InMemoryChannelLayer'
+        ),
+        'CONFIG': {'hosts': [REDIS_URL]} if REDIS_URL else {},
+    },
+}
 
 
 # Database
@@ -124,3 +141,11 @@ CORS_ALLOWED_ORIGINS = os.environ.get(
     'CORS_ALLOWED_ORIGINS',
     'http://127.0.0.1:5173,http://localhost:5173',
 ).split(',')
+
+GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID', '')
+GOOGLE_CLIENT_SECRET = os.environ.get('GOOGLE_CLIENT_SECRET', '')
+GOOGLE_REDIRECT_URI = os.environ.get(
+    'GOOGLE_REDIRECT_URI',
+    'http://127.0.0.1:8000/api/auth/google/callback/',
+)
+FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://127.0.0.1:5173')

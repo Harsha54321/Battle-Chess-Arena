@@ -3,7 +3,8 @@ import {
     Users,
     Bell,
     ShoppingCart,
-    Gift
+    Gift,
+    Brain,
 } from "lucide-react";
 
 function QuickAccess() {
@@ -12,18 +13,27 @@ function QuickAccess() {
         {
             title: "Friends",
             icon: <Users size={32} />,
+            to: "/friends",
         },
         {
             title: "Notifications",
             icon: <Bell size={32} />,
+            to: "/notifications",
         },
         {
             title: "Shop",
             icon: <ShoppingCart size={32} />,
+            to: "/shop",
+        },
+        {
+            title: "Training",
+            icon: <Brain size={32} />,
+            to: "/training",
         },
         {
             title: "Daily Rewards",
             icon: <Gift size={32} />,
+            to: "/daily-rewards",
         },
     ];
 
@@ -34,7 +44,7 @@ function QuickAccess() {
                 QUICK ACCESS
             </h2>
 
-            <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-5 md:grid-cols-5">
 
                 {actions.map((action) => (
 
@@ -42,6 +52,7 @@ function QuickAccess() {
                         key={action.title}
                         icon={action.icon}
                         title={action.title}
+                        to={action.to}
                     />
 
                 ))}

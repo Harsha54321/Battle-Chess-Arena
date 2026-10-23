@@ -27,7 +27,9 @@ function GuestSetup() {
         setIsSubmitting(true);
 
         try {
-            const player = await createGuestPlayer(name.trim(), selectedAvatar);
+            const session = await createGuestPlayer(name.trim(), selectedAvatar);
+            const player = session.player;
+            sessionStorage.setItem("battleChessSessionToken", session.session_token);
             localStorage.setItem(
                 "battleChessUser",
                 JSON.stringify({

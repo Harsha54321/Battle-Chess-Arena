@@ -1,14 +1,21 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getLeaderboard } from "../../services/api";
+
+const fallbackPlayers = [
+  { rank: 1, name: "Player1", elo: 2450 },
+  { rank: 2, name: "Player2", elo: 2400 },
+  { rank: 3, name: "Player3", elo: 2350 },
+  { rank: 4, name: "Player4", elo: 2300 },
+  { rank: 5, name: "Player5", elo: 2250 },
+];
 
 function Leaderboard() {
+  const [players, setPlayers] = useState(fallbackPlayers);
 
-  const players = [
-    { rank: 1, name: "Player1", elo: 2450 },
-    { rank: 2, name: "Player2", elo: 2400 },
-    { rank: 3, name: "Player3", elo: 2350 },
-    { rank: 4, name: "Player4", elo: 2300 },
-    { rank: 5, name: "Player5", elo: 2250 },
-  ];
+  useEffect(() => {
+    getLeaderboard().then(setPlayers).catch(() => {});
+  }, []);
 
   return (
     <div className="glass-card gaming-card rounded-3xl p-6 mt-6">

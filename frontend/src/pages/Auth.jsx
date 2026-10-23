@@ -6,33 +6,15 @@ import { FaChessKnight } from "react-icons/fa";
 import ParticleBackground from "../components/ParticleBackground";
 import GlowBackground from "../components/GlowBackground";
 import { useNavigate } from "react-router-dom";
+import { startGoogleSignIn } from "../services/api";
 
 function Auth() {
     const navigate = useNavigate();
     const [googleError, setGoogleError] = useState("");
 
     const handleGoogleSignIn = () => {
-        const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-
-        if (!clientId) {
-            setGoogleError("Google sign-in is not configured yet.");
-            return;
-        }
-
-        const state = crypto.randomUUID();
-        sessionStorage.setItem("googleOAuthState", state);
-
-        const params = new URLSearchParams({
-            client_id: clientId,
-            redirect_uri: import.meta.env.VITE_GOOGLE_REDIRECT_URI || `${window.location.origin}/auth/callback`,
-            response_type: "code",
-            scope: "openid email profile",
-            state,
-            access_type: "offline",
-            prompt: "select_account",
-        });
-
-        window.location.assign(`https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`);
+        setGoogleError("");
+        startGoogleSignIn();
     };
 
     return (
@@ -87,7 +69,7 @@ function Auth() {
 
                     {googleError && (
                         <p role="alert" className="text-center text-sm text-red-400">
-                            {googleError} Add VITE_GOOGLE_CLIENT_ID to the frontend environment.
+                            {googleError}
                         </p>
                     )}
 
